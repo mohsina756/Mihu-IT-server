@@ -5,14 +5,18 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000
 
-// Middleware
+// middleware
 app.use(
-    cors({
-      origin: ["http://localhost:5173"],
-      credentials: true,
-    })
-  );
-  app.use(express.json());
+  cors({origin: [
+      "http://localhost:5173",
+      "https://mihu-it.web.app",
+      "https://mihu-it.firebaseapp.com",
+    ],
+    credentials: true,
+  })
+);
+app.use(express.json());
+  
 
   // MongoDB:
   const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.sah5bbd.mongodb.net/?retryWrites=true&w=majority`;
